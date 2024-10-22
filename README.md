@@ -4,10 +4,11 @@ Repository for jet flavor tagging studies for future electron-positron colliders
 
 
 ```
-git clone https://github.com/dntounis/Hss_studies.git .
+git clone https://github.com/dntounis/jet-flavor-tagging-ee.git .
 git submodule update --init --recursive
 
 ```
+
 
 
 <img width="910" alt="image" src="https://github.com/user-attachments/assets/841c5d37-1118-4aec-899c-07e616c568e2">
@@ -23,6 +24,9 @@ git submodule update --init --recursive
 
 
 ## Whizard
+
+
+
 
 ## Delphes
 
