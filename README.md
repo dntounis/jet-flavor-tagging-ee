@@ -3,7 +3,7 @@ Repository for Higgs to strange tagging studies for future electron-positron col
 
 
 ```
-git clone
+git clone https://github.com/dntounis/Hss_studies.git .
 git submodule update --init --recursive
 
 ```
