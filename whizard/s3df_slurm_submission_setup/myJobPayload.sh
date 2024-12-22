@@ -15,6 +15,22 @@ source /cvmfs/sw-nightlies.hsf.org/key4hep/setup.sh
 
 SIN_FILE="wzp6_ee_nunuH_H${flavor}_ecm250.sin"
 TEMP_SIN_FILE="wzp6_ee_nunuH_H${flavor}_ecm250_${number}.sin"
+
+# choose one from Z,nunuH and nunuHH
+
+
+if [[ "$process" == "Z" ]]; then
+    SIN_FILE="wzp6_ee_Z${flavor}_ecm91p2.sin"
+    TEMP_SIN_FILE="wzp6_ee_Z${flavor}_ecm91p2_${number}.sin"
+elif [[ "$process" == "nunuH" ]]; then
+    SIN_FILE="wzp6_ee_nunuH_H${flavor}_ecm250.sin"
+    TEMP_SIN_FILE="wzp6_ee_nunuH_H${flavor}_ecm250_${number}.sin"
+elif [[ "$process" == "nunuHH" ]]; then
+    SIN_FILE="wzp6_ee_nunuHH_H${flavor}_H${flavor}_ecm550.sin"
+    TEMP_SIN_FILE="wzp6_ee_nunuHH_H${flavor}_H${flavor}_ecm550_${number}.sin"
+fi
+
+
 cp $SIN_FILE $TEMP_SIN_FILE
 
 # Modify the sample name in the temporary .sin file by appending _NUMBER

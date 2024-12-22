@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-#SBATCH --account=atlas:usatlas
+#SBATCH --account=atlas:default
+# #SBATCH --account=atlas:usatlas
 #SBATCH --partition=roma
 #SBATCH --job-name=Hss_Whizard_sample_generation
 #SBATCH --output=Hss_Whizard_%A_%a.out
@@ -22,6 +23,10 @@ starting_number=0 # e.g. if I run 1 job per flavor I get I get all files with _1
 #flavors=("bb" "cc" "dd" "gg" "ss" "uu")
 flavors=("bb" "cc" "dd")
 #flavors=("bb")
+
+process="nunuH"
+# choose one from Z,nunuH and nunuHH
+
 
 # Get the total number of flavors
 num_flavors=${#flavors[@]}
