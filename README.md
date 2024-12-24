@@ -32,6 +32,7 @@ To run Whizard sample generation, first cd to the whizard directory. Then set th
 
 ```
 export whizard_dir=$(pwd)
+sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/Hss_whizard_S3DF_SLURM_submission.sh
 sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/myJobPayload.sh
 ```
 
@@ -43,6 +44,15 @@ source s3df_slurm_submission_setup/Hss_whizard_S3DF_SLURM_submission.sh
 
 
 ## Delphes
+
+To run Delphes fast simulation, we first need to fetch the Delphes cards we need. In this study, we use the IDEA and FCCeeDetWithSiTracking detectors from the [central Delphes repo](https://github.com/delphes/delphes/tree/master/cards) as well as the [latest SiD card](https://github.com/dntounis/SiD_Delphes/blob/new_SiD_card/delphes_card_DSiD_Jim_dndx_TrkCov_E.tcl) (as of December 2024).
+
+To get these cards, cd to the Delphes directory and run the script below:
+
+```
+source fetch_Delphes_cards.sh
+```
+
 
 ## FCCAnalyses - preprocessing
 
