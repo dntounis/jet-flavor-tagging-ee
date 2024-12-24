@@ -3,6 +3,7 @@
 
 flavor=$1
 number=$2
+process=$3
 
 echo "Running Whizard for flavor $flavor with number ${number}"
 

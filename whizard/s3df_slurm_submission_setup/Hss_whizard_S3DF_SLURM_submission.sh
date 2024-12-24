@@ -24,7 +24,7 @@ starting_number=0 # e.g. if I run 1 job per flavor I get I get all files with _1
 flavors=("bb" "cc" "dd")
 #flavors=("bb")
 
-process="nunuH"
+PROCESS="nunuH"
 # choose one from Z,nunuH and nunuHH
 
 
@@ -51,7 +51,7 @@ export HOME=/fs/ddn/sdf/group/atlas/d/dntounis
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 
 # Use ALRB_CONT_RUNPAYLOAD to define the actual job payload
-export ALRB_CONT_RUNPAYLOAD="/fs/ddn/sdf/group/atlas/d/dntounis/Hss_setup_test/whizard_v2/s3df_slurm_submission_setup/myJobPayload.sh $FLAVOR $NUMBER "
+export ALRB_CONT_RUNPAYLOAD="/fs/ddn/sdf/group/atlas/d/dntounis/Hss_setup_test/whizard_v2/s3df_slurm_submission_setup/myJobPayload.sh $FLAVOR $NUMBER $PROCESS "
 
 cd ~
 # Run the payload in container.

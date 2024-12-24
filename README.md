@@ -2,6 +2,7 @@
 
 Repository for jet flavor tagging studies for future electron-positron colliders using Delphes fast simulation
 
+To download this repository and all linked submodules:
 
 ```
 git clone https://github.com/dntounis/jet-flavor-tagging-ee.git .
