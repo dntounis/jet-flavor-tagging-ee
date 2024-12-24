@@ -51,7 +51,7 @@ export HOME=/fs/ddn/sdf/group/atlas/d/dntounis
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 
 # Use ALRB_CONT_RUNPAYLOAD to define the actual job payload
-export ALRB_CONT_RUNPAYLOAD="/fs/ddn/sdf/group/atlas/d/dntounis/Hss_setup_test/whizard_v2/s3df_slurm_submission_setup/myJobPayload.sh $FLAVOR $NUMBER $PROCESS "
+export ALRB_CONT_RUNPAYLOAD="__WHIZARD_DIR__/s3df_slurm_submission_setup/myJobPayload.sh $FLAVOR $NUMBER $PROCESS "
 
 cd ~
 # Run the payload in container.
