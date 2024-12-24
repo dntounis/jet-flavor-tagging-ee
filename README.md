@@ -24,9 +24,22 @@ git submodule update --init --recursive
 5. Running inference in [FCCAnalyses](https://github.com/HEP-FCC/FCCAnalyses)
 
 
+Disclaimer: the workflow above utilizes the [SLAC S3DF](https://s3df.slac.stanford.edu) cluster for job submission via slurm. Any submission scripts have to be modified accordingly if you are using a different job submission system. 
+
 ## Whizard
 
+To run Whizard sample generation, first cd to the whizard directory. Then set the paths accordingly:
 
+```
+export whizard_dir=$(pwd)
+sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/myJobPayload.sh
+```
+
+and run the job submission script:
+
+```
+source s3df_slurm_submission_setup/Hss_whizard_S3DF_SLURM_submission.sh
+```
 
 
 ## Delphes
