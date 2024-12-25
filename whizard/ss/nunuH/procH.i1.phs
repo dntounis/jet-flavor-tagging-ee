@@ -1,0 +1,38 @@
+ process procH_i1
+
+! List of subprocesses with particle bincodes:
+! 16  8        1        2 4
+! e- e+ =>   nue   nuebar H
+! e- e+ =>  numu  numubar H
+! e- e+ => nutau nutaubar H
+! 16  8        1        2 4
+
+   md5sum_process    = "27B58CBCC969E20D37E74A9C8F6D3D41"
+   md5sum_model_par  = "7656C90A0B2C4325AD911301DACF50EB"
+   md5sum_phs_config = "4539191196F02B0C4EDA4E9B9D81FB48"
+   sqrts         =  2.500000000000E+02
+   m_threshold_s =  5.000000000000E+01
+   m_threshold_t =  1.000000000000E+02
+   off_shell = 2
+   t_channel = 6
+   keep_nonresonant = T
+
+ ! Multiplicity = 2, 1 resonance,   0 logs,  1 off-shell,  s-channel graph
+ grove #1
+ ! Channel #1
+   tree  3 7
+   map   3 s_channel        23 ! Z
+
+ ! Multiplicity = 3, no resonances,  0 logs,  2 off-shell,  s-channel graph
+ grove #2
+ ! Channel #2
+   tree  3 7
+
+ ! Multiplicity = 3, no resonances,  1 logs,  1 off-shell,  2 t-channel lines
+ grove #3
+ ! Channel #3
+   tree  10 14
+   map  10 u_channel        24 ! W+
+ ! Channel #4
+   tree  17 21
+   map  17 u_channel        24 ! W+

@@ -53,6 +53,15 @@ To get these cards, cd to the Delphes directory and run the script below:
 source fetch_Delphes_cards.sh
 ```
 
+Then, to set the correct paths:
+
+```
+export delphes_dir=$(pwd)
+sed -i "s|__DELPHES_DIR__|$delphes_dir|g" s3df_slurm_submission_setup/Hss_Delphes_S3DF_SLURM_submission.sh
+sed -i "s|__DELPHES_DIR__|$delphes_dir|g" s3df_slurm_submission_setup/myJobPayload_production.sh
+sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/myJobPayload_production.sh
+```
+
 
 ## FCCAnalyses - preprocessing
 
