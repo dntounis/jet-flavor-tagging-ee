@@ -65,6 +65,15 @@ sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/myJobPaylo
 
 ## FCCAnalyses - preprocessing
 
+Once the Delphes samples have been produced, FCCAnalyses is used to preprocess them and create flat, per-jet Ntuples.
+
+To set the paths correctly, after cd-ing to the FCCAnalyses_Winter2023 directory, run the script below:
+
+```
+source set_paths_fccana.sh
+```
+
+
 ## Training in weaver
 
 ## FCCAnalyses - inference
