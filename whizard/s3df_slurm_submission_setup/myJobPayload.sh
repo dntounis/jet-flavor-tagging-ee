@@ -21,6 +21,9 @@ source /cvmfs/sw-nightlies.hsf.org/key4hep/setup.sh
 if [[ "$process" == "Z" ]]; then
     SIN_FILE="../wzp6_ee_Z${flavor}_ecm91p2.sin"
     TEMP_SIN_FILE="wzp6_ee_Z${flavor}_ecm91p2_${number}.sin"
+elif [[ "$process" == "Z_v2" ]]; then
+    SIN_FILE="../wzp6_ee_Z${flavor}_ecm91p2_v2.sin"
+    TEMP_SIN_FILE="wzp6_ee_Z${flavor}_ecm91p2_${number}_v2.sin"
 elif [[ "$process" == "nunuH" ]]; then
     SIN_FILE="../wzp6_ee_nunuH_H${flavor}_ecm250.sin"
     TEMP_SIN_FILE="wzp6_ee_nunuH_H${flavor}_ecm250_${number}.sin"
