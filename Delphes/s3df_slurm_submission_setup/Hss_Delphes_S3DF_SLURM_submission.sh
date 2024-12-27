@@ -22,7 +22,7 @@ flavors=("bb" "cc" "dd")
 #flavors=("gg" "ss" "uu")
 
 PROCESS="nunuH"
-# choose one from Z,nunuH and nunuHH
+# choose one from Z,Z_v2, nunuH and nunuHH
 
 DETECTOR="SiD_2024"
 # choose one from SiD_2024,IDEA and FCCeeDetWithSiTracking
