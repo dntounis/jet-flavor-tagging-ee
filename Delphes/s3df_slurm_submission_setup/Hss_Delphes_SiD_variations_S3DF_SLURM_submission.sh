@@ -26,8 +26,15 @@ flavors=("bb" "cc" "dd")
 PROCESS="nunuH"
 # choose one from Z,Z_v2, nunuH and nunuHH
 
-DETECTOR="SiD_2024"
-# choose one from SiD_2024,IDEA and FCCeeDetWithSiTracking
+DETECTOR="SiD_2024_2T"
+# choose one from
+#	("SiD_2024_2T" "SiD_2024_3T" "SiD_2024_4T"
+#           "SiD_2024_1stvtx_10mm" "SiD_2024_1stvtx_12mm" "SiD_2024_1stvtx_16mm"
+#           "SiD_2024_ECALenrel_5%" "SiD_2024_ECALenrel_15%" "SiD_2024_ECALenrel_20%" "SiD_2024_ECALenrel_25%"
+#           "SiD_2024_HCALenrel_15%" "SiD_2024_HCALenrel_30%" "SiD_2024_HCALenrel_60%" "SiD_2024_HCALenrel_75%"
+#           "SiD_2024_ECALsprel_0p5mm" "SiD_2024_ECALsprel_2mm" "SiD_2024_ECALsprel_5mm"
+#           "SiD_2024_HCALsprel_1cm" "SiD_2024_HCALsprel_5cm" "SiD_2024_HCALsprel_7cm" )
+
 
 # Select the directory based on the array task ID
 #FLAVOR=${flavors[$SLURM_ARRAY_TASK_ID]}
@@ -61,7 +68,7 @@ export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 
 #export ALRB_CONT_RUNPAYLOAD="/fs/ddn/sdf/group/atlas/d/dntounis/Hss_setup_test/Delphes/s3df_slurm_submission_setup/myJobPayload.sh $FLAVOR $NUMBER "
 
-export ALRB_CONT_RUNPAYLOAD="__DELPHES_DIR__/s3df_slurm_submission_setup/myJobPayload_production.sh $FLAVOR $NUMBER $PROCESS $DETECTOR "
+export ALRB_CONT_RUNPAYLOAD="__DELPHES_DIR__/s3df_slurm_submission_setup/myJobPayload_production_SiD_variations.sh $FLAVOR $NUMBER $PROCESS $DETECTOR "
 
 cd ~
 

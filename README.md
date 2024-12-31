@@ -42,6 +42,8 @@ and run the job submission script:
 source s3df_slurm_submission_setup/Hss_whizard_S3DF_SLURM_submission.sh
 ```
 
+Jobs should be completed within ~10 mins. A few resubmissions might be necessary to ensure they've all been completed.
+
 
 ## Delphes
 
@@ -61,6 +63,32 @@ sed -i "s|__DELPHES_DIR__|$delphes_dir|g" s3df_slurm_submission_setup/Hss_Delphe
 sed -i "s|__DELPHES_DIR__|$delphes_dir|g" s3df_slurm_submission_setup/myJobPayload_production.sh
 sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/myJobPayload_production.sh
 ```
+
+For SiD detector variations studies, fetch these additional Delphes cards:
+
+```
+source fetch_Delphes_cards_SiD_variations.sh
+```
+
+and, likewise, to set the correct paths:
+
+
+```
+export delphes_dir=$(pwd)
+sed -i "s|__DELPHES_DIR__|$delphes_dir|g" s3df_slurm_submission_setup/Hss_Delphes_SiD_variations_S3DF_SLURM_submission.sh
+sed -i "s|__DELPHES_DIR__|$delphes_dir|g" s3df_slurm_submission_setup/myJobPayload_production_SiD_variations.sh
+sed -i "s|__WHIZARD_DIR__|$whizard_dir|g" s3df_slurm_submission_setup/myJobPayload_production_SiD_variations.sh
+```
+
+Before running the job submision scripts, we have to create the directory structure that the submision scripts expect in order to save the Delphes outputs correctly:
+
+```
+source create_Delphes_directories.sh
+#and likewise for SiD detector variation studies
+source create_Delphes_directories_SiD_variations.sh
+```
+
+
 
 
 ## FCCAnalyses - preprocessing
