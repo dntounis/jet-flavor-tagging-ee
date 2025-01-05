@@ -26,6 +26,19 @@ git submodule update --init --recursive
 
 Disclaimer: the workflow above utilizes the [SLAC S3DF](https://s3df.slac.stanford.edu) cluster for job submission via slurm. Any submission scripts have to be modified accordingly if you are using a different job submission system. 
 
+Typical job execution tim S3DF for each step:
+
+|              Step                  | Time [min] |
+| -------------------------------    |  --------- |
+| Whizard                            | 5       	  |
+| Delphes                            | 30     	  |
+| FCCAnalysis Stage 1                | 5        	|
+| FCCAnalysis Stage 2                | -         	|
+| Weaver training                    | -         	|
+| FCCAnalysis Inference              |           	|
+
+
+
 ## Whizard
 
 To run Whizard sample generation, first cd to the whizard directory. Then set the paths accordingly:
@@ -100,6 +113,21 @@ To set the paths correctly, after cd-ing to the FCCAnalyses_Winter2023 directory
 ```
 source set_paths_fccana.sh
 ```
+
+In stage 1, the PF Candidates are clustered in jets and in stage 2, the trees are flattened to have one entry per jet.
+
+*Caution*: before running Stage 1, make sure you set the number of jets in `examples/FCCee/weaver/config.py` according to the Physics process simulated.
+
+
+
+After completing stage1 and before moving on to stage2, we need to create the qq class by merging the uu and dd files. To do this:
+
+```
+source create_qq_class_files.sh
+# for SiD variations
+source create_qq_class_files_SiD_variations.sh
+```
+
 
 
 ## Training in weaver
