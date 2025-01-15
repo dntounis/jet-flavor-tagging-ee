@@ -73,7 +73,7 @@ inputs:
          - pfcand_isChargedHad
          - pfcand_isGamma
          - pfcand_isNeutralHad
-         #- pfcand_type #Jim -- do I need to comment this out?
+         #- pfcand_type #Jim
          - pfcand_dxy
          - pfcand_dz
          #- pfcand_dxysig
@@ -87,8 +87,8 @@ inputs:
          - pfcand_btagSip3dSig
          - pfcand_btagJetDistVal
          - pfcand_btagJetDistSig
-         - pfcand_e
-         - pfcand_p
+         #- pfcand_e
+         #- pfcand_p
    pf_mask:
       length: 75
       vars: 

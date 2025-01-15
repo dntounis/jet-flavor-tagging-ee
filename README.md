@@ -33,8 +33,8 @@ Typical job execution tim S3DF for each step:
 | Whizard                            | 5       	  |
 | Delphes                            | 30     	  |
 | FCCAnalysis Stage 1                | 5        	|
-| FCCAnalysis Stage 2                | -         	|
-| Weaver training                    | -         	|
+| FCCAnalysis Stage 2                | 30         	|
+| Weaver training                    | 180 per epoch         	|
 | FCCAnalysis Inference              |           	|
 
 
@@ -128,8 +128,60 @@ source create_qq_class_files.sh
 source create_qq_class_files_SiD_variations.sh
 ```
 
+After stage2 is complete, run the following scrpt(s) to create the training-inference directory splits:
+
+```
+# inside the FCCAnalyses2023 folder
+source split_stage2_output_files.sh
+source split_stage2_output_files_SiD_variations.sh
+```
+
+
+** Change code for input config to make sure it's matching correct path for stage1,stage2,inference,plotting scripts!!!
+Discuss when to make changes to config. E.g. for ZHH change njets=5 before stage1, also before stage1 change flavor array to qq!!
+
 
 
 ## Training in weaver
+
+For the training in weaver, first install weaver using the instructons [here](https://github.com/hqucms/weaver-core) -- the conda setup is preferred. For the training, any setup with a GPU and several GBs of memory should suffice. Below is a sample setup for those with access to the S3DF cluster.
+
+```
+# Go to s3df ondemand, and choose Interactive apps -> jupyter
+
+Custom
+Conda Environment...
+
+Commands to initiate Jupyter:
+
+export CONDA_PREFIX=/sdf/data/atlas/u/dntounis/miniconda3
+export PATH=${CONDA_PREFIX}/bin/:$PATH
+source ${CONDA_PREFIX}/etc/profile.d/conda.sh
+conda env list
+conda activate weaver
+
+Use JupyterLab instead of Jupyter Notebook? Yes
+
+Run on cluster type: Batch
+
+Account: atlas:default
+Partition: ampere
+Number of hours: 15
+Number of CPU cores: 1
+Total Memory to allocate:  39040
+Number of GPUs: 1
+
+Launch, and then Connect to Jupyter when it's ready
+
+Open a terminal
+
+
+>> nvidia-smi
+
+It will print out a lot of information about the GPU (A100 in this case)
+
+```
+
+
 
 ## FCCAnalyses - inference
