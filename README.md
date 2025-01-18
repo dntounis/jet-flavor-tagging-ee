@@ -35,7 +35,7 @@ Typical job execution tim S3DF for each step:
 | FCCAnalysis Stage 1                | 5        	|
 | FCCAnalysis Stage 2                | 30         	|
 | Weaver training                    | 180 per epoch         	|
-| FCCAnalysis Inference              |           	|
+| FCCAnalysis Inference              | 45          	|
 
 
 
@@ -101,6 +101,14 @@ source create_Delphes_directories.sh
 source create_Delphes_directories_SiD_variations.sh
 ```
 
+After Delphes is done, run the following scripts to create the Delphes qq files. These are used when running inference:
+
+
+```
+source create_qq_class_files_Delphes.sh
+#and likewise for SiD detector variation studies
+source create_qq_class_files_Delphes_SiD_variations.sh
+``
 
 
 
@@ -136,9 +144,8 @@ source split_stage2_output_files.sh
 source split_stage2_output_files_SiD_variations.sh
 ```
 
-
 ** Change code for input config to make sure it's matching correct path for stage1,stage2,inference,plotting scripts!!!
-Discuss when to make changes to config. E.g. for ZHH change njets=5 before stage1, also before stage1 change flavor array to qq!!
+Discuss when to make changes to config. E.g. for ZHH change njets=4 before stage1, also before stage1 change flavor array to qq!!
 
 
 
@@ -185,3 +192,12 @@ It will print out a lot of information about the GPU (A100 in this case)
 
 
 ## FCCAnalyses - inference
+
+Once the training is complete, first create a folder called exported_models inside the models_production folder. We will save the exported onnx models there.
+
+To do that, run the following script (inside a conda environment with weaver):
+
+```
+# from inside the weaver-training directory
+source export_models.sh
+```
